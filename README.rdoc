@@ -1,0 +1,27 @@
+== Introduction
+
+This script is to be used to post comment updates to ZenDesk tickets as part of your post-commit hook in subversion. It's written in PHP and requires the SimpleXML package along with cURL to be enabled for PHP.
+
+== Not Tested!
+
+At this phase, it's a proof of concept and has not been tested. Your mileage may vary. If you do get it to work with modifications, please post the updated files back to this project (by either forking / pull request or by simply leaving the changes in a comment).
+
+== The Basics
+
+With the post-commit hook properly installed and the script configured, you should be able to use the key words "fixed", "fixes", "addresses", "addressed" in your commit message followed by a "#{ticket_id_number}" to update the status of tickets in ZenDesk.
+
+These would work:
+
+   Updated the header to include the new logo. Addresses #1258.
+   Fixed #3456 by re-factoring the navigation panel.
+   Corrected spelling on home page. Addresses #1258 and addresses #1259  <-- this would post to both tickets
+   Corrected spelling on home page. Addresses #1258 and #1258 <-- this only posts to the first one (missing keyword)
+
+These would not work at all:
+
+   Fixed ticket #1254 by resetting the password. <-- keyword must be immediately before the # sign
+   Addressed # 1255 with new layout. <-- the space causes the ticket ID to not be recognized
+
+== Note about users
+
+This script assumes that your usernames in Subversion neatly correspond to your e-mail addresses in ZenDesk (jdoe in subversion is jdoe@example.com in ZenDesk). If they don't, the updates will not be properly attached to your "Agent" account, and might be outright rejected.

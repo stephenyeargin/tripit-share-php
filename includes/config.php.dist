@@ -1,0 +1,9 @@
+<?php
+
+// TripIt Client Config
+define('TRIPIT_API_KEY', 'API_KEY_HERE');
+define('TRIPIT_API_SECRET', 'API_SECRET_HERE');
+
+// File Paths
+define('DOC_ROOT', realpath( dirname(__FILE__) ) . '/..');
+define('BASE_URL', 'http://yoursiteurlhere.com');
