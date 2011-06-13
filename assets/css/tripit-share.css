@@ -1,13 +1,34 @@
-body { font-size: 10pt; font-family: arial, sans-serif }
-h1, h2, h3 { font-weight: bold; margin-bottom: .25em; line-height: 2em;}
-h1 { font-size: 300%; }
-h2 { font-size: 200%; }
-h3 { font-size: 150%; }
+body { font-size: 10pt; font-family: arial, sans-serif; background-image: url(../images/background-white.png); background-repeat:no-repeat; background-position:center 60px; line-height:1.5em; }
+h1, h2, h3 { font-weight: bold; line-height: 1em;}
+h1 a, h2 a, h3 a { text-decoration:none; }
+h1 { font-size: 250%; margin-bottom: .5em; line-height: 1.5em; }
+h2 { font-size: 200%; margin-bottom: .5em; }
+h3 { font-size: 150%; margin-bottom: 1em;}
 hr { display: none; }
+p { margin-bottom: 1em; }
+b, strong { font-weight: bold; }
+i, em { font-style:italic; }
 
 table { width:100%; border-collapse:collapse; margin-bottom: 1em; }
-table td, table th{ font-size:1em; border:1px solid #98bf21; padding:3px 7px 2px 7px; }
-table th{ font-size:1.1em; text-align:left; padding-top:5px; padding-bottom:4px; background-color:#A7C942; color:#ffffff; }
+table td, table th{ font-size:1em; border:1px solid #3198C0; padding:3px 7px 2px 7px; }
+table th{ font-size:1.1em; text-align:left; padding-top:5px; padding-bottom:4px; background-color:#3198C0; color:#ffffff; }
 table tr.alt td, table tr:nth-child(odd) { color:#000000;background-color:#EAF2D3; }
 
-#body { margin-top: 1em; margin-bottom: 1em; }
+#header { margin-bottom: 1.5em; height: 75px; overflow:hidden; }
+#header ul { display:block; height: 25px; float:right; margin-top: -50px; }
+#header ul li { display: inline; padding: 0 10px; }
+#body { margin-bottom: 1.5em; }
+#footer { }
+#footer p { text-align: center; font-style: italic; }
+
+div.profile-photo, div.traveler-photo { width: 80px; height: 80px; overflow:hidden; border: solid 1px #eee;}
+
+div.itenerary-item { border-top: solid 1px #eee; padding-top: 1em; }
+div.itenerary-item p { border-left: solid 4px #eee; padding-left: 10px; }
+
+h2.travel-icon { float:right; display:block; width: 100px; height: 100px; overflow:hidden; border-radius: 10px; background-image: url(../images/icons.jpg); background-repeat: no-repeat; margin-top: 0.5em; }
+h2.travel-icon span { display:block; padding-top: 100px; }
+h2.travel-icon-air {  background-position: -741px -240px; }
+h2.travel-icon-transport {  background-position: -233px -210px; }
+h2.travel-icon-lodging {  background-position: -880px -369px; }
+h2.travel-icon-activity {  background-position: -880px -77px }

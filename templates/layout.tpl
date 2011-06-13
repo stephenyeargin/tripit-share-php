@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="{$base_url}/assets/css/grid.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{$base_url}/assets/css/tripit-share.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"> </script>
-	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"> </script>
 	<script type="text/javascript" src="{$base_url}/assets/js/tripit-share.js"> </script>
 	{block name=head}{/block}
 </head>
@@ -19,27 +18,27 @@
 <div id="page" class="container_24">
 
 	<div id="header" class="alpha grid_24 omega">
-		<h1>TripIt® Share</h1>
+		<h1><a href="{$base_url}">TripIt&reg; Share</a></h1>
 		<ul>
-			<li><a href="{$base_url}">Home</a></li>
+			<li><a href="{$base_url}">List of Trips</a></li>
 			<li><a href="{$base_url}/oauth.php?logout">Logout</a></li>
 		</ul>
 	</div>
 
 	<hr />
 
-	<div id="body" class="alpha grid_18">
+	<div id="body" class="alpha prefix_1 grid_15">
 	{block name=body}{/block}
 	</div>
 
-	<div id="sidebar" class="grid_6 omega">
+	<div id="sidebar" class="prefix_1 grid_6 suffix_1 omega">
 	{block name=sidebar}{/block}
 	</div>
 
 	<hr />
 
 	<div id="footer" class="alpha grid_24 omega">
-		<p>Disclaimer: This product is not affiliated with TripIt® and is provided without warranty.</p>
+		<p>Disclaimer: This product is not affiliated with TripIt&reg; and is provided without warranty.</p>
 	{block name=foot}{/block}
 	</div>
 
