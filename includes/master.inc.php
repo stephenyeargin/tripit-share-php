@@ -28,8 +28,9 @@ if ($token):
 	$Smarty->assign('profile', $profile->Profile);
 	$Smarty->debugging = true;
 else:
-	//if ($_SERVER['SCRIPT_NAME'] != 'oauth.php')
-	//	header('Location: oauth.php');
-//	else
+	// Don't process redirect if already on OAuth page
+	if (strpos('oauth.php', $_SERVER['PHP_SELF']))
+		header('Location: oauth.php');
+	else
 		$TripIt = null;
 endif;
