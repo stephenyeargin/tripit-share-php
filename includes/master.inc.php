@@ -12,8 +12,9 @@ session_start();
 
 // Smarty
 $Smarty = new TripitShareSmarty;
-if (isset($_GET['debug'])):
-	$Smarty->debugging = true;
+$Smarty->assign('base_url', BASE_URL);
+if (defined('DEBUG')):
+	$Smarty->debugging = DEBUG;
 endif;
 
 // TripIt
@@ -26,7 +27,7 @@ if ($token):
 	// Profile
 	$profile = $TripIt->GetProfile();
 	$Smarty->assign('profile', $profile->Profile);
-	$Smarty->debugging = true;
+	
 else:
 	// Don't process redirect if already on OAuth page
 	if (strpos('oauth.php', $_SERVER['PHP_SELF']))

@@ -64,6 +64,15 @@ class TripItShare extends Tripit {
 			return $object->AirObject;
 	}
 	
+	public function GetTransport($object) {
+		if (!isset($object->TransportObject))
+			return array();
+		if (!is_array($object->TransportObject))
+			return array($object->TransportObject);
+		else
+			return $object->TransportObject;
+	}
+	
 	public function GetActivities($object) {
 		if (!isset($object->ActivityObject))
 			return array();

@@ -12,6 +12,10 @@ if (isset($_GET['trip_id'])):
 	$air = $TripIt->GetAirTravel($trip);
 	$Smarty->assign('air', $air);
 	
+	// Transport
+	$transport = $TripIt->GetTransport($trip);
+	$Smarty->assign('transport', $transport);
+		
 	// Air Travel
 	$lodging = $TripIt->GetLodging($trip);
 	$Smarty->assign('lodging', $lodging);
