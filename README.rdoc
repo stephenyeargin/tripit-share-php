@@ -1,3 +1,20 @@
 == Introduction
 
 This project is an implementation of TripIt's API (http://tripit.github.com/api/doc/v1/). You must have a TripIt account in order to test this project.
+
+== Installation
+
+* Copy ./includes/config.php.dist to config.php
+* Update this file with your TripIt API keys (register an application at <http://www.tripit.com/developer/create>)
+* Set the 'BASE_URL' to the URL of the application
+
+You will also need to make sure the ./cache folder is writable.
+
+  chmod -fR 777 cache/
+
+== Libraries in Use
+
+* Smarty3 <http://www.smarty.net/>
+* Swift Mailer <http://swiftmailer.org/>
+* TripIt API <http://tripit.github.com/api/>
+* An error class borrowed from <https://github.com/tylerhall/simple-php-framework>
