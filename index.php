@@ -2,6 +2,10 @@
 
 require('includes/master.inc.php');
 
+// If $TripIt not set, redirect
+if (!$TripIt)
+	header('Location: oauth.php');
+
 // Past Trips
 $trips = $TripIt->GetTrips( array('past' => 'true') );
 $Smarty->assign('past_trips', $trips->Trip );

@@ -79,7 +79,7 @@
 			<p>
 				<strong>Time:</strong> {$activity_item->StartDateTime->time|date_format:'%l:%M %p'}<br />
 				<strong>Date:</strong> {$activity_item->StartDateTime->date|date_format}<br />
-				<strong>Address:</strong> {$activity_item->Address->address}}
+				<strong>Address:</strong> {$activity_item->Address->address}
 			</p>
 		</div>
 	</div>

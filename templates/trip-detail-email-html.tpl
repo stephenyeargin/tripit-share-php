@@ -73,7 +73,7 @@ body { font-family: sans-serif; }
 <p>
     <strong>Time:</strong> {$activity_item->StartDateTime->time|date_format:'%l:%M %p'} <br />
     <strong>Date:</strong> {$activity_item->StartDateTime->date|date_format} <br />
-    <strong>Address:</strong> {$activity_item->Address->address}} </br>
+    <strong>Address:</strong> {$activity_item->Address->address} </br>
 <p>
 {/foreach}
 {/if}

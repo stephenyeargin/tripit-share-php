@@ -63,7 +63,7 @@
 {$activity_item->display_name}
     **Time:** {$activity_item->StartDateTime->time|date_format:'%l:%M %p'} 
     **Date:** {$activity_item->StartDateTime->date|date_format} 
-    **Address:** {$activity_item->Address->address}} 
+    **Address:** {$activity_item->Address->address} 
 
 {/foreach}
 {/if}
