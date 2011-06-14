@@ -47,6 +47,6 @@ h2.travel-icon-activity {  background-position: -880px -77px }
 
 /* Authentication Button */
 .medium.button{font-size:16px;padding:10px 14px 12px 16px;}
-a.button{box-shadow:2px 2px 5px rgba(0,0,0,0.2);color:white;display:inline-block;font-family:"HelveticaNeue-Bold","HelveticaNeue",Helvetica,Arial,Sans-serif;font-weight:bold;text-decoration:none;white-space:nowrap;}
+a.button{box-shadow:2px 2px 5px rgba(0,0,0,0.2);color:white;display:inline-block;font-weight:bold;text-decoration:none;white-space:nowrap;}
 .orange.button{background-color: #FF9009; }
 .orange.button:hover{background:none repeat scroll 0 0 #FF9009;}
