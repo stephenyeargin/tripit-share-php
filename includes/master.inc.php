@@ -6,6 +6,7 @@ require 'config.php';
 // Base classes
 require 'class.tripit.php';
 require 'class.smarty.php';
+require 'class.swift.php';
 
 // Globals
 session_start();
