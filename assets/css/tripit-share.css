@@ -9,11 +9,13 @@ p { margin-bottom: 1em; }
 b, strong { font-weight: bold; }
 i, em { font-style:italic; }
 
+/* Tables */
 table { width:100%; border-collapse:collapse; margin-bottom: 1em; }
 table td, table th{ font-size:1em; border:1px solid #3198C0; padding:3px 7px 2px 7px; }
 table th{ font-size:1.1em; text-align:left; padding-top:5px; padding-bottom:4px; background-color:#3198C0; color:#ffffff; }
 table tr.alt td, table tr:nth-child(odd) { color:#000000;background-color:#EAF2D3; }
 
+/* Main Sections */
 #header { margin-bottom: 1.5em; height: 75px; overflow:hidden; }
 #header ul { display:block; height: 25px; float:right; margin-top: -50px; }
 #header ul li { display: inline; padding: 0 10px; }
@@ -21,14 +23,16 @@ table tr.alt td, table tr:nth-child(odd) { color:#000000;background-color:#EAF2D
 #footer { }
 #footer p { text-align: center; font-style: italic; }
 
-div.profile-photo, div.traveler-photo { width: 80px; height: 80px; overflow:hidden; border: solid 1px #eee;}
-
+/* Itenerary Items */
 div.itenerary-item { border-top: solid 1px #eee; padding-top: 1em; }
 div.itenerary-item p { border-left: solid 4px #eee; padding-left: 10px; }
 
+/* Sidebar Content */
+div.profile-photo, div.traveler-photo { width: 80px; height: 80px; overflow:hidden; border: solid 1px #eee;}
 div.traveler-list { margin-bottom: 2em; }
 div.share-form { margin-bottom: 1em; }
 
+/* Icons */
 h2.travel-icon { float:right; display:block; width: 100px; height: 100px; overflow:hidden; border-radius: 10px; background-image: url(../images/icons.jpg); background-repeat: no-repeat; margin-top: 0.5em; }
 h2.travel-icon span { display:block; padding-top: 100px; }
 h2.travel-icon-air {  background-position: -741px -240px; }
@@ -36,6 +40,13 @@ h2.travel-icon-transport {  background-position: -233px -210px; }
 h2.travel-icon-lodging {  background-position: -880px -369px; }
 h2.travel-icon-activity {  background-position: -880px -77px }
 
+/* Error/Success Space */
 #error { padding:10px; margin-bottom:1em; border:4px solid red; }
 #success { padding:10px; margin-bottom:1em; border:4px solid #3198C0; }
 #error h3, #success h3 { margin-bottom: 0; }
+
+/* Authentication Button */
+.medium.button{font-size:16px;padding:10px 14px 12px 16px;}
+a.button{box-shadow:2px 2px 5px rgba(0,0,0,0.2);color:white;display:inline-block;font-family:"HelveticaNeue-Bold","HelveticaNeue",Helvetica,Arial,Sans-serif;font-weight:bold;text-decoration:none;white-space:nowrap;}
+.orange.button{background:-moz-linear-gradient(center bottom,#FF9009 22%,#FFAA44 81%) repeat scroll 0 0 transparent;}
+.orange.button:hover{background:none repeat scroll 0 0 #FF9009;}
