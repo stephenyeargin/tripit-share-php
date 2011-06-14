@@ -2,6 +2,19 @@
 {block name=title}Trip Detail{/block}
 {block name=body}
 
+{if $Error ne null}
+<div id="error">
+	<h3>Errors</h3>
+	{$Error->ul()}
+</div>
+{/if}
+
+{if $trip_sent eq true}
+<div id="success">
+	<h3>Your trip was shared!</h3>
+</div>
+{/if}
+
 <h2>{$trip->Trip->display_name}</h2>
 
 <div class="itenerary">
@@ -77,7 +90,7 @@
 {/block}
 
 {block name=sidebar}
-<div class="travelers">
+<div class="traveler-list">
 	<h3>Travelers</h3>
 	{foreach $traveler as $traveler_item}
 	<div class="traveler">
@@ -93,5 +106,38 @@
 	</div>
 	<div class="clear">&nbsp;</div>
 	{/foreach}
+</div>
+<div class="share-form">
+	<h3>Share Your Trip</h3>
+	<form method="post">
+		<p>
+			<label>Recipient's Name</label><br />
+			<input type="text" name="recipient_name" id="recipient_name" value="{$recipient_name|escape}" />
+		</p>
+		<p>
+			<label>Recipient's E-mail</label><br />
+			<input type="text" name="recipient_email" id="recipient_email" value="{$recipient_email|escape}"/>
+		</p>
+		<p>
+			<label>Your Name</label><br />
+			<input type="text" name="sender_name" id="sender_name" value="{$sender_name|escape}" />
+		</p>
+		<p>
+			<label>Your E-mail</label><br />
+			<input type="text" name="sender_email" id="sender_email" value="{$sender_email|escape}" />
+		</p>
+		<p>
+			<label>Message (optional)</label>
+			<textarea name="message" id="message">{$message|escape}</textarea>
+		</p>
+			{if $air ne null}<label><input type="checkbox" name="to_send[air]" value="1" checked="checked" /> Air Travel</label><br />{/if}
+			{if $transport ne null}<label><input type="checkbox" name="to_send[transport]" value="1" checked="checked" /> Tranportation</label><br />{/if}
+			{if $lodging ne null}<label><input type="checkbox" name="to_send[lodging]" value="1" checked="checked" /> Lodging</label><br />{/if}
+			{if $activity ne null}<label><input type="checkbox" name="to_send[activity]" value="1" checked="checked" /> Activities</label><br />{/if}
+		<p>
+			<input type="hidden" name="trip_id" value="{$smarty.get.trip_id}" />
+			<input type="submit" value="Send!" />
+		</p>
+	</form>
 </div>
 {/block}

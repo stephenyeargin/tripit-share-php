@@ -4,6 +4,7 @@
 require 'config.php';
 
 // Base classes
+require 'class.error.php';
 require 'class.tripit.php';
 require 'class.smarty.php';
 require 'class.swift.php';
@@ -20,6 +21,9 @@ endif;
 
 // TripIt
 $token = TripItToken::getTripItToken();
+
+// Error
+$Error = Error::getError();
 
 // Get Token
 if ($token):
