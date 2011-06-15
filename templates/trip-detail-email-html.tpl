@@ -41,10 +41,11 @@ body { font-family: sans-serif; }
 {foreach $transport_item->Segment as $k => $segment_item}
 <h3>{$segment_item->start_location_name} to {$segment_item->end_location_name}</h3>
 <p>
-	<strong>Time:</strong> {$segment_item->StartDateTime->time|date_format:'%l:%M %p'}<br />
-	<strong>Date:</strong> {$segment_item->StartDateTime->date|date_format}<br />
-	<strong>Place:</strong> {$segment_item->StartLocationAddress->address}<br />
-	<strong>Carrier:</strong> {$segment_item->carrier_name}
+	<strong>Departure:</strong> {$segment_item->StartDateTime->time|date_format:'%l:%M %p'} {$segment_item->StartDateTime->date|date_format}<br />
+	<strong>Location:</strong> {$segment_item->StartLocationAddress->address}<br />
+	<strong>Arrival:</strong> {if isset($segment_item->EndDateTime->time)}{$segment_item->EndDateTime->time|date_format:'%l:%M %p'}{/if} {$segment_item->EndDateTime->date|date_format}<br />
+	<strong>Location:</strong> {$segment_item->EndLocationAddress->address}<br />
+	<strong>Carrier:</strong> {$segment_item->carrier_name} {if isset($segment_item->vehicle_description)}({$segment_item->vehicle_description}){/if}
 </p>
 {/foreach}
 {/foreach}

@@ -14,7 +14,7 @@ sup { font-size:50%; vertical-align:super; }
 
 /* Tables */
 table { width:100%; border-collapse:collapse; margin-bottom: 1em; }
-table td, table th{ font-size:1em; border:1px solid #3198C0; padding:3px 7px 2px 7px; }
+table td, table th{ font-size:1em; padding:3px 7px 2px 7px; }
 table th{ font-size:1.1em; text-align:left; padding-top:5px; padding-bottom:4px; background-color:#3198C0; color:#ffffff; }
 table tr.alt td, table tr:nth-child(odd) { background-color:#efefef; }
 

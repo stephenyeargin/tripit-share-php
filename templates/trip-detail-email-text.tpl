@@ -33,10 +33,11 @@
 {foreach $transport as $k => $transport_item}
 {foreach $transport_item->Segment as $k => $segment_item}
 {$segment_item->start_location_name} to {$segment_item->end_location_name} 
-    Time: {$segment_item->StartDateTime->time|date_format:'%l:%M %p'}
-    Date: {$segment_item->StartDateTime->date|date_format}
-    Place: {$segment_item->StartLocationAddress->address}
-    Carrier: {$segment_item->carrier_name}
+	Departure: {$segment_item->StartDateTime->time|date_format:'%l:%M %p'} {$segment_item->StartDateTime->date|date_format}
+	Location: {$segment_item->StartLocationAddress->address}
+	Arrival: {if isset($segment_item->EndDateTime->time)}{$segment_item->EndDateTime->time|date_format:'%l:%M %p'}{/if} {$segment_item->EndDateTime->date|date_format}
+	Location: {$segment_item->EndLocationAddress->address}
+	Carrier: {$segment_item->carrier_name} {if isset($segment_item->vehicle_description)}({$segment_item->vehicle_description}){/if}
 
 {/foreach}
 {/foreach}

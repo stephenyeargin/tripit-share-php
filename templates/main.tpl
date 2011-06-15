@@ -30,7 +30,7 @@
 	<tbody>
 	{foreach $future_trips as $trip}
 		<tr class="{cycle values='odd,even'}">
-			<td><a href="trip.php?trip_id={$trip->id}">{$trip->display_name}</a></td>
+			<td><a href="trip.php?trip_id={$trip->id}&amp;user={$profile->screen_name}">{$trip->display_name}</a></td>
 			<td>{$trip->primary_location}</td>
 			<td>{$trip->start_date}</td>
 			<td>{$trip->end_date}</td>
@@ -56,11 +56,11 @@
 			<th>End Date</th>
 			<th>Private</th>
 		</tr>
-	<thead>
+	</thead>
 	<tbody>
 	{foreach $past_trips as $trip}
 		<tr class="{cycle values='odd,even'}">
-			<td><a href="trip.php?trip_id={$trip->id}">{$trip->display_name}</a></td>
+			<td><a href="trip.php?trip_id={$trip->id}&amp;user={$profile->screen_name}">{$trip->display_name}</a></td>
 			<td>{$trip->primary_location}</td>
 			<td>{$trip->start_date}</td>
 			<td>{$trip->end_date}</td>
