@@ -26,11 +26,11 @@
 		<div class="air-travel">
 			<h3>{$segment_item->start_city_name} to {$segment_item->end_city_name}</h3>
 			<p>
-				<strong>Take-off:</strong> {$segment_item->StartDateTime->time|date_format:'%l:%M %p'} ({$segment_item->StartDateTime->date|date_format})<br />
-				<strong>Landing:</strong> {$segment_item->EndDateTime->time|date_format:'%l:%M %p'}<br />
-				<strong>Place:</strong> {$segment_item->start_airport_code}<br />
 				<strong>Airline:</strong> {$segment_item->marketing_airline}<br />
-				<strong>Flight Number:</strong> {$segment_item->marketing_airline_code}  {$segment_item->marketing_flight_number}
+				<strong>Flight Number:</strong> {$segment_item->marketing_airline_code}  {$segment_item->marketing_flight_number}<br />
+				<strong>Take-off:</strong> {$segment_item->StartDateTime->time|date_format:'%l:%M %p'} ({$segment_item->StartDateTime->date|date_format})<br />
+				<strong>Landing:</strong> {$segment_item->EndDateTime->time|date_format:'%l:%M %p'} ({$segment_item->duration})<br />
+				<strong>Airports:</strong> {$segment_item->start_airport_code} to {$segment_item->end_airport_code} ({$segment_item->distance})
 			</p>
 		</div>
 		{/foreach}
@@ -55,6 +55,23 @@
 	</div>
 	<div class="clear">&nbsp;</div>
 	{/foreach}
+
+	{if $car ne null}<h2 class="travel-icon travel-icon-car"><span>Car Rental</span></h2>{/if}
+	{foreach $car as $k => $car_item}
+	<div class="itenerary-item">
+		<div class="car">
+			<h3>{$car_item->display_name}</h3>
+			<p>
+				<strong>Vehicle:</strong> {$car_item->car_type}<br />
+				<strong>Pickup:</strong> {$car_item->StartDateTime->time|date_format:'%l:%M %p'} {$car_item->StartDateTime->date|date_format}<br />
+				<strong>Location:</strong> {$car_item->StartLocationAddress->address} <br />
+				<strong>Drop-Off:</strong> {$car_item->EndDateTime->time|date_format:'%l:%M %p'} {$car_item->EndDateTime->date|date_format}<br />
+				<strong>Location:</strong> {$car_item->EndLocationAddress->address}	
+			</p>
+		</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+	{/foreach}
 	
 	{if $lodging ne null}<h2 class="travel-icon travel-icon-lodging"><span>Lodging</span></h2>{/if}
 	{foreach $lodging as $k => $lodging_item}
@@ -62,8 +79,8 @@
 		<div class="lodging">
 			<h3>{$lodging_item->display_name}</h3>
 			<p>
-				<strong>Time:</strong> {$lodging_item->StartDateTime->time|date_format:'%l:%M %p'}<br />
-				<strong>Date:</strong> {$lodging_item->StartDateTime->date|date_format}<br />
+				<strong>Check-In:</strong> {$lodging_item->StartDateTime->time|date_format:'%l:%M %p'} {$lodging_item->StartDateTime->date|date_format} <br />
+				<strong>Check-Out:</strong> {$lodging_item->EndDateTime->time|date_format:'%l:%M %p'} {$lodging_item->EndDateTime->date|date_format} <br />
 				<strong>Address:</strong> {$lodging_item->Address->address}
 			</p>
 		</div>
@@ -77,8 +94,8 @@
 		<div class="activity">
 			<h3>{$activity_item->display_name}</h3>
 			<p>
-				<strong>Time:</strong> {$activity_item->StartDateTime->time|date_format:'%l:%M %p'}<br />
-				<strong>Date:</strong> {$activity_item->StartDateTime->date|date_format}<br />
+				<strong>Starts:</strong> {$activity_item->StartDateTime->time|date_format:'%l:%M %p'} {$activity_item->StartDateTime->date|date_format} <br />
+				<strong>Ends:</strong> {$activity_item->end_time|date_format:'%l:%M %p'} <br />
 				<strong>Address:</strong> {$activity_item->Address->address}
 			</p>
 		</div>
@@ -109,31 +126,32 @@
 </div>
 <div class="share-form">
 	<h3>Share Your Trip</h3>
-	<form method="post">
+	<form method="post" id="share-form">
 		<p>
-			<label>Recipient's Name</label><br />
-			<input type="text" name="recipient_name" id="recipient_name" value="{$recipient_name|escape}" />
+			<label>Recipient's Name</label>
+			<input type="text" name="recipient_name" id="recipient_name" value="{$recipient_name|escape}" class="required" />
 		</p>
 		<p>
-			<label>Recipient's E-mail</label><br />
-			<input type="text" name="recipient_email" id="recipient_email" value="{$recipient_email|escape}"/>
+			<label>Recipient's E-mail</label>
+			<input type="text" name="recipient_email" id="recipient_email" value="{$recipient_email|escape}" class="required email" />
 		</p>
 		<p>
-			<label>Your Name</label><br />
-			<input type="text" name="sender_name" id="sender_name" value="{$sender_name|escape}" />
+			<label>Your Name</label>
+			<input type="text" name="sender_name" id="sender_name" value="{$sender_name|escape}" class="required" />
 		</p>
 		<p>
-			<label>Your E-mail</label><br />
-			<input type="text" name="sender_email" id="sender_email" value="{$sender_email|escape}" />
+			<label>Your E-mail</label>
+			<input type="text" name="sender_email" id="sender_email" value="{$sender_email|escape}" class="required email" />
 		</p>
 		<p>
 			<label>Message (optional)</label>
 			<textarea name="message" id="message">{$message|escape}</textarea>
 		</p>
-			{if $air ne null}<label><input type="checkbox" name="to_send[air]" value="1" checked="checked" /> Air Travel</label><br />{/if}
-			{if $transport ne null}<label><input type="checkbox" name="to_send[transport]" value="1" checked="checked" /> Tranportation</label><br />{/if}
-			{if $lodging ne null}<label><input type="checkbox" name="to_send[lodging]" value="1" checked="checked" /> Lodging</label><br />{/if}
-			{if $activity ne null}<label><input type="checkbox" name="to_send[activity]" value="1" checked="checked" /> Activities</label><br />{/if}
+			{if $air ne null}<label><input type="checkbox" name="to_send[air]" value="1" checked="checked" /> Air Travel</label>{/if}
+			{if $transport ne null}<label><input type="checkbox" name="to_send[transport]" value="1" checked="checked" /> Tranportation</label>{/if}
+			{if $lodging ne null}<label><input type="checkbox" name="to_send[lodging]" value="1" checked="checked" /> Lodging</label>{/if}
+			{if $activity ne null}<label><input type="checkbox" name="to_send[activity]" value="1" checked="checked" /> Activities</label>{/if}
+			{if $car ne null}<label><input type="checkbox" name="to_send[car]" value="1" checked="checked" /> Car Rental</label>{/if}
 		<p>
 			<input type="hidden" name="trip_id" value="{$smarty.get.trip_id}" />
 			<input type="submit" value="Send!" />

@@ -91,6 +91,32 @@ class TripItShare extends Tripit {
 			return $object->LodgingObject;
 	}
 	
+	public function GetCar($object) {
+		if (!isset($object->CarObject))
+			return array();
+		if (!is_array($object->CarObject))
+			return array($object->CarObject);
+		else
+			return $object->CarObject;
+	}
+	
+	public function GetCruise($object) {
+		if (!isset($object->CruiseObject))
+			return array();
+		if (!is_array($object->CruiseObject))
+			return array($object->CruiseObject);
+		else
+			return $object->CruiseObject;
+	}
+	
+	public function GetRail($object) {
+		if (!isset($object->RailObject))
+			return array();
+		if (!is_array($object->RailObject))
+			return array($object->RailObject);
+		else
+			return $object->RailObject;
+	}
 }
 
 /**

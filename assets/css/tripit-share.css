@@ -1,13 +1,16 @@
-body { font-size: 10pt; font-family: arial, sans-serif; background-image: url(../images/background-white.png); background-repeat:no-repeat; background-position:center 60px; line-height:1.5em; }
-h1, h2, h3 { font-weight: bold; line-height: 1em;}
+body { font-size: 10pt; font-family: 'Helvetica Neue', 'Helvetica', arial, sans-serif; background-image: url(../images/background-white.png); background-repeat:no-repeat; background-position:center 60px; line-height:1.5em; }
+h1, h2, h3 { font-family: 'Maven Pro', Helvetica, arial, sans-serif; font-weight:bold; line-height: 1em;}
 h1 a, h2 a, h3 a { text-decoration:none; }
-h1 { font-size: 250%; margin-bottom: .5em; line-height: 1.5em; }
+h1 { font-family: 'Oswald', arial, sans-serif; font-size: 250%; margin-bottom: .5em; line-height: 1.5em; }
+h1 a { color: #000; letter-spacing: -0.01em; }
+h1 sup { font-family: arial, sans-serif; }
 h2 { font-size: 200%; margin-bottom: .5em; }
 h3 { font-size: 150%; margin-bottom: 1em;}
 hr { display: none; }
 p { margin-bottom: 1em; }
 b, strong { font-weight: bold; }
 i, em { font-style:italic; }
+sup { font-size:50%; vertical-align:top; }
 
 /* Tables */
 table { width:100%; border-collapse:collapse; margin-bottom: 1em; }
@@ -31,12 +34,17 @@ div.itenerary-item p { border-left: solid 4px #eee; padding-left: 10px; }
 div.profile-photo, div.traveler-photo { width: 80px; height: 80px; overflow:hidden; border: solid 1px #eee;}
 div.traveler-list { margin-bottom: 2em; }
 div.share-form { margin-bottom: 1em; }
+input[type=text] { width:100%; height:25px; border:solid 1px #ddd; font-size:110%; }
+form label { display:block; font-weight: bold; }
+form label.error { color: #ff0000; }
+textarea { width:100%; height: 125px; border:solid 1px #eee; font-size:110%; }
 
 /* Icons */
 h2.travel-icon { float:right; display:block; width: 100px; height: 100px; overflow:hidden; border-radius: 10px; background-image: url(../images/icons.jpg); background-repeat: no-repeat; margin-top: 0.5em; }
 h2.travel-icon span { display:block; padding-top: 100px; }
 h2.travel-icon-air {  background-position: -741px -240px; }
 h2.travel-icon-transport {  background-position: -233px -210px; }
+h2.travel-icon-car {  background-position: -400px -210px; }
 h2.travel-icon-lodging {  background-position: -880px -369px; }
 h2.travel-icon-activity {  background-position: -880px -77px }
 

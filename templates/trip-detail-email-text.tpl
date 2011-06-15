@@ -17,16 +17,15 @@
 {foreach $air as $k => $air_item}
 {foreach $air_item->Segment as $k => $segment_item}
 {$segment_item->start_city_name} to {$segment_item->end_city_name} 
-    **Take-off:** {$segment_item->StartDateTime->time|date_format:'%l:%M %p'} ({$segment_item->StartDateTime->date|date_format}) 
-    **Landing:** {$segment_item->EndDateTime->time|date_format:'%l:%M %p'} 
-    **Place:** {$segment_item->start_airport_code} 
-    **Airline:** {$segment_item->marketing_airline} 
-    **Flight Number:** {$segment_item->marketing_airline_code}  {$segment_item->marketing_flight_number} 
+    Airline: {$segment_item->marketing_airline}
+    Flight Number: {$segment_item->marketing_airline_code}  {$segment_item->marketing_flight_number}
+    Take-off: {$segment_item->StartDateTime->time|date_format:'%l:%M %p'} ({$segment_item->StartDateTime->date|date_format})
+    Landing: {$segment_item->EndDateTime->time|date_format:'%l:%M %p'} ({$segment_item->duration})
+    Airports: {$segment_item->start_airport_code} to {$segment_item->end_airport_code} ({$segment_item->distance})
 
 {/foreach}
 {/foreach}
 {/if}
-
 
 {if isset($to_send.transport)}
 -- Transportation --
@@ -34,24 +33,36 @@
 {foreach $transport as $k => $transport_item}
 {foreach $transport_item->Segment as $k => $segment_item}
 {$segment_item->start_location_name} to {$segment_item->end_location_name} 
-    **Time:** {$segment_item->StartDateTime->time|date_format:'%l:%M %p'} 
-    **Date:** {$segment_item->StartDateTime->date|date_format} 
-    **Place:** {$segment_item->StartLocationAddress->address} 
-    **Carrier:** {$segment_item->carrier_name} 
+    Time: {$segment_item->StartDateTime->time|date_format:'%l:%M %p'}
+    Date: {$segment_item->StartDateTime->date|date_format}
+    Place: {$segment_item->StartLocationAddress->address}
+    Carrier: {$segment_item->carrier_name}
 
 {/foreach}
 {/foreach}
 {/if}
 
+{if isset($to_send.car)}
+-- Car Rental --
 
-{if $to_send.lodging eq 1}
+{foreach $car as $k => $car_item}
+{$car_item->display_name}
+    Vehicle: {$car_item->car_type}
+    Pickup: {$car_item->StartDateTime->time|date_format:'%l:%M %p'} {$car_item->StartDateTime->date|date_format}
+    Location: {$car_item->StartLocationAddress->address} 
+    Drop-Off: {$car_item->EndDateTime->time|date_format:'%l:%M %p'} {$car_item->EndDateTime->date|date_format}
+    Location: {$car_item->EndLocationAddress->address}
+{/foreach}
+{/if}
+
+{if isset($to_send.lodging)}
 -- Lodging --
 
 {foreach $lodging as $k => $lodging_item}
 {$lodging_item->display_name}
-    **Time:** {$lodging_item->StartDateTime->time|date_format:'%l:%M %p'} 
-    **Date:** {$lodging_item->StartDateTime->date|date_format} 
-    **Address:** {$lodging_item->Address->address} 
+    Check-In: {$lodging_item->StartDateTime->time|date_format:'%l:%M %p'} {$lodging_item->StartDateTime->date|date_format} 
+    Check-Out: {$lodging_item->EndDateTime->time|date_format:'%l:%M %p'} {$lodging_item->EndDateTime->date|date_format} 
+    Address: {$lodging_item->Address->address}
 
 {/foreach}
 {/if}
@@ -61,9 +72,9 @@
 
 {foreach $activity as $k => $activity_item}
 {$activity_item->display_name}
-    **Time:** {$activity_item->StartDateTime->time|date_format:'%l:%M %p'} 
-    **Date:** {$activity_item->StartDateTime->date|date_format} 
-    **Address:** {$activity_item->Address->address} 
+    Starts: {$activity_item->StartDateTime->time|date_format:'%l:%M %p'} {$activity_item->StartDateTime->date|date_format} 
+    Ends: {$activity_item->end_time|date_format:'%l:%M %p'} 
+    Address: {$activity_item->Address->address}
 
 {/foreach}
 {/if}

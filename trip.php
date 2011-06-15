@@ -15,8 +15,12 @@ if (isset($_REQUEST['trip_id'])):
 	// Transport
 	$transport = $TripIt->GetTransport($trip);
 	$Smarty->assign('transport', $transport);
-		
-	// Air Travel
+
+	// Car
+	$car = $TripIt->GetCar($trip);
+	$Smarty->assign('car', $car);
+
+	// Lodging
 	$lodging = $TripIt->GetLodging($trip);
 	$Smarty->assign('lodging', $lodging);
 	
@@ -27,6 +31,17 @@ if (isset($_REQUEST['trip_id'])):
 	// Traveler list
 	$traveler = $TripIt->GetTravelers($trip);
 	$Smarty->assign('traveler', $traveler);
+	
+	/* These two are not yet implemented in the templates */
+
+	// Rail
+	$rail = $TripIt->GetRail($trip);
+	$Smarty->assign('rail', $rail);
+	
+	// Cruise
+	$cruise = $TripIt->GetCruise($trip);
+	$Smarty->assign('cruise', $cruise);	
+	
 	
 else:
 	header('Location: ' . BASE_URL);
