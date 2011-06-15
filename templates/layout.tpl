@@ -15,17 +15,20 @@
 	<script type="text/javascript" src="{$base_url}/assets/js/jquery.validate.js"> </script>
 	<script type="text/javascript" src="{$base_url}/assets/js/tripit-share.js"> </script>
 	{block name=head}{/block}
+	{if $analytics_code ne ''}{include 'analytics.tpl'}{/if}
 </head>
 <body>
 
-<div id="page" class="container_24">
+<div id="page">
+
+<div id="container" class="container_24">
 
 	<div id="header" class="alpha grid_24 omega">
 		<h1><a href="{$base_url}">TripIt<sup>&reg;</sup> Share</a></h1>
 		{if (isset($profile))}
 		<ul>
 			<li><a href="{$base_url}">List of Trips</a></li>
-			<li><a href="{$base_url}/oauth.php?logout">Logout</a></li>
+			<li><a href="{$base_url}oauth.php?logout">Logout</a></li>
 		</ul>
 		{/if}
 	</div>
@@ -50,6 +53,10 @@
 	<div class="clear">&nbsp;</div>
 
 </div>
+
+</div>
+
+<div style="position:absolute; background-color:#3198C0; display:block; width:100%; z-index:-100; height:88px;top:0"></div>
 
 </body>
 </html>

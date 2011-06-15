@@ -1,8 +1,8 @@
-body { font-size: 10pt; font-family: 'Helvetica Neue', 'Helvetica', arial, sans-serif; background-image: url(../images/background-white.png); background-repeat:no-repeat; background-position:center 60px; line-height:1.5em; }
+body { font-size: 10pt; font-family: 'Helvetica Neue', 'Helvetica', arial, sans-serif;  line-height:1.5em; }
 h1, h2, h3 { font-family: 'Maven Pro', Helvetica, arial, sans-serif; font-weight:bold; line-height: 1em;}
 h1 a, h2 a, h3 a { text-decoration:none; }
 h1 { font-family: 'Oswald', arial, sans-serif; font-size: 250%; margin-bottom: .5em; line-height: 1.5em; }
-h1 a { color: #3198C0; letter-spacing: -0.01em; }
+h1 a { color: #fff; letter-spacing: -0.01em; }
 h1 sup { font-family: arial, sans-serif; }
 h2 { font-size: 200%; margin-bottom: .5em; }
 h3 { font-size: 150%; margin-bottom: 1em;}
@@ -16,12 +16,14 @@ sup { font-size:50%; vertical-align:top; }
 table { width:100%; border-collapse:collapse; margin-bottom: 1em; }
 table td, table th{ font-size:1em; border:1px solid #3198C0; padding:3px 7px 2px 7px; }
 table th{ font-size:1.1em; text-align:left; padding-top:5px; padding-bottom:4px; background-color:#3198C0; color:#ffffff; }
-table tr.alt td, table tr:nth-child(odd) { color:#000000;background-color:#EAF2D3; }
+table tr.alt td, table tr:nth-child(odd) { background-color:#efefef; }
 
 /* Main Sections */
+#page { background-image: url(../images/background-white.png); background-repeat:no-repeat; background-position:center 60px; }
 #header { margin-bottom: 1.5em; height: 75px; overflow:hidden; }
-#header ul { display:block; height: 25px; float:right; margin-top: -50px; }
+#header ul { display:block; height: 25px; float:right; margin-top: -45px; font-size:120%; }
 #header ul li { display: inline; padding: 0 10px; }
+#header ul li a { color: #fff; text-decoration:none; }
 #body { margin-bottom: 1.5em; }
 #footer { }
 #footer p { text-align: center; font-style: italic; }
@@ -55,8 +57,9 @@ h2.travel-icon-cruise { background-position: 0px -500px; }
 #success { padding:10px; margin-bottom:1em; border:4px solid #3198C0; }
 #error h3, #success h3 { margin-bottom: 0; }
 
-/* Authentication Button */
-.medium.button{font-size:16px;padding:10px 14px 12px 16px;}
-a.button{box-shadow:2px 2px 5px rgba(0,0,0,0.2);color:white;display:inline-block;font-weight:bold;text-decoration:none;white-space:nowrap;}
-.orange.button{background-color: #FF9009; }
-.orange.button:hover{background:none repeat scroll 0 0 #FF9009;}
+/* Buttons */
+a.button, input.button {border: none; font-size:16px;padding:10px 14px 12px 16px; box-shadow:2px 2px 5px rgba(0,0,0,0.2); color:white; display:inline-block; font-weight:bold; text-decoration:none; background-color: #FF9009; margin:1em 0; cursor: pointer; }
+a.button:hover, input.button:hover {background-color: #DD9009;}
+
+/* Welcome Text */
+div.welcome p { font-size: 120%; line-height: 1.5em; }

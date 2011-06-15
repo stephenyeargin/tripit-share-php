@@ -18,6 +18,11 @@ $Smarty->assign('base_url', BASE_URL);
 if (defined('DEBUG')):
 	$Smarty->debugging = DEBUG;
 endif;
+if (defined('ANALYTICS_CODE')):
+	$Smarty->assign('analytics_code', ANALYTICS_CODE);
+else:
+	$Smarty->assign('analytics_code', '');
+endif;
 
 // TripIt
 $token = TripItToken::getTripItToken();

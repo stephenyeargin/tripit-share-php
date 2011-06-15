@@ -154,7 +154,7 @@
 			{if $car ne null}<label><input type="checkbox" name="to_send[car]" value="1" checked="checked" /> Car Rental</label>{/if}
 		<p>
 			<input type="hidden" name="trip_id" value="{$smarty.get.trip_id}" />
-			<input type="submit" value="Send!" />
+			<input type="submit" value="Send!" class="button" />
 		</p>
 	</form>
 </div>
