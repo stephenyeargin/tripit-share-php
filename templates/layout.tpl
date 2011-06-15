@@ -22,7 +22,7 @@
 
 	<div id="header" class="alpha grid_24 omega">
 		<h1><a href="{$base_url}">TripIt<sup>&reg;</sup> Share</a></h1>
-		{if (isset($trip))}
+		{if (isset($profile))}
 		<ul>
 			<li><a href="{$base_url}">List of Trips</a></li>
 			<li><a href="{$base_url}/oauth.php?logout">Logout</a></li>
