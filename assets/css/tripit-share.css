@@ -10,7 +10,7 @@ hr { display: none; }
 p { margin-bottom: 1em; }
 b, strong { font-weight: bold; }
 i, em { font-style:italic; }
-sup { font-size:50%; vertical-align:top; }
+sup { font-size:50%; vertical-align:super; }
 
 /* Tables */
 table { width:100%; border-collapse:collapse; margin-bottom: 1em; }
@@ -42,7 +42,7 @@ form label.error { color: #ff0000; }
 textarea { width:100%; height: 125px; border:solid 1px #eee; font-size:110%; }
 
 /* Icons */
-h2.travel-icon { float:right; display:block; width: 100px; height: 100px; overflow:hidden; border-radius: 10px; background-image: url(../images/travel-icons.png); background-repeat: no-repeat; margin-top: 0.5em; background-color: #3198C0; }
+h2.travel-icon { float:right; display:block; width: 100px; height: 100px; overflow:hidden; border-radius: 10px; background-image: url(../images/travel-icons.png); background-repeat: no-repeat; margin-top: 0.5em; margin-left: 1em; background-color: #3198C0; }
 h2.travel-icon span { display:block; padding-top: 100px; }
 h2.travel-icon-air {  background-position: 0px 0px; }
 h2.travel-icon-transport {  background-position: 0px -600px; }
