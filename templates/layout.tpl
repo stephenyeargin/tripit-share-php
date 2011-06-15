@@ -3,7 +3,7 @@
 
 <html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>{block name=title}{/block} | TripIt&reg; Share</title>
 	<link rel="shortcut icon" href="{$base_url}/assets/images/favicon.ico" type="application/x-icon" />
 	<link rel="stylesheet" href="{$base_url}/assets/css/reset.css" type="text/css" media="screen" />

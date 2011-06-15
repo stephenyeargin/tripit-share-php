@@ -26,7 +26,7 @@
 			<th>End Date</th>
 			<th>Private</th>
 		</tr>
-	<thead>
+	</thead>
 	<tbody>
 	{foreach $future_trips as $trip}
 		<tr class="{cycle values='odd,even'}">
