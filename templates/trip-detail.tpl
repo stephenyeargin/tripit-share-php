@@ -17,6 +17,8 @@
 
 <h2>{$trip->Trip->display_name}</h2>
 
+<p>{$trip->Trip->start_date|date_format:'%A, %B %e, %Y' } &ndash; {$trip->Trip->end_date|date_format: '%A, %B %e, %Y'}</p>
+
 <div class="itenerary">
 
 	{if $air ne null}<h2 class="travel-icon travel-icon-air"><span>Air Travel</span></h2>{/if}

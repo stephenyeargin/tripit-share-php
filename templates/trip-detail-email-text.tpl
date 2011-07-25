@@ -11,6 +11,8 @@
 
 || {$trip->Trip->display_name} ||
 
+{$trip->Trip->start_date|date_format:'%A, %B %e, %Y' } -- {$trip->Trip->end_date|date_format: '%A, %B %e, %Y'}
+
 {if isset($to_send.air)}
 -- Air Travel --
 

@@ -32,8 +32,8 @@
 		<tr class="{cycle values='odd,even'}">
 			<td><a href="trip.php?trip_id={$trip->id}&amp;user={$profile->screen_name}">{$trip->display_name}</a></td>
 			<td>{$trip->primary_location}</td>
-			<td>{$trip->start_date}</td>
-			<td>{$trip->end_date}</td>
+			<td>{$trip->start_date|date_format}</td>
+			<td>{$trip->end_date|date_format}</td>
 			<td>{if $trip->is_private eq 'false'}No{else}Yes{/if}</td>
 		</tr>
 	{/foreach}
@@ -62,8 +62,8 @@
 		<tr class="{cycle values='odd,even'}">
 			<td><a href="trip.php?trip_id={$trip->id}&amp;user={$profile->screen_name}">{$trip->display_name}</a></td>
 			<td>{$trip->primary_location}</td>
-			<td>{$trip->start_date}</td>
-			<td>{$trip->end_date}</td>
+			<td>{$trip->start_date|date_format}</td>
+			<td>{$trip->end_date|date_format}</td>
 			<td>{if $trip->is_private eq 'false'}No{else}Yes{/if}</td>
 		</tr>
 	{/foreach}
