@@ -8,10 +8,12 @@
 <div class="profile-photo"><img src="{$base_url}/assets/images/default-photo.jpg" alt="Photo" /></div>
 {/if}
 <p>
-	<strong>Name:</strong> {$profile->public_display_name}<br />
-	<strong>Screen Name:</strong> <a href="http://tripit.com/{$profile->profile_url}">{$profile->screen_name}</a><br />
-	<strong>Home City:</strong> {$profile->home_city}<br />
-	<strong>Company:</strong> {$profile->company}
+	<strong>{$profile->public_display_name}</strong><br />
+	{$profile->home_city}<br />
+	{$profile->company}
+</p>
+<p>
+	<strong>TripIt Profile:</strong> <a href="http://tripit.com/{$profile->profile_url}">{$profile->screen_name}</a><br />
 </p>
 {/block}
 {block name=body}
@@ -24,17 +26,15 @@
 			<th>City</th>
 			<th>Start Date</th>
 			<th>End Date</th>
-			<th>Private</th>
 		</tr>
 	</thead>
 	<tbody>
 	{foreach $future_trips as $trip}
-		<tr class="{cycle values='odd,even'}">
-			<td><a href="trip.php?trip_id={$trip->id}&amp;user={$profile->screen_name}">{$trip->display_name}</a></td>
-			<td>{$trip->primary_location}</td>
-			<td>{$trip->start_date|date_format}</td>
-			<td>{$trip->end_date|date_format}</td>
-			<td>{if $trip->is_private eq 'false'}No{else}Yes{/if}</td>
+		<tr class="{cycle values='odd,even'}{if $trip->is_private eq 'true'} private{/if}">
+			<td class="display-name"><a href="trip.php?trip_id={$trip->id}&amp;user={$profile->screen_name}">{$trip->display_name}</a></td>
+			<td class="primary-location">{$trip->primary_location}</td>
+			<td class="start-date">{$trip->start_date|date_format}</td>
+			<td class="end-date">{$trip->end_date|date_format}</td>
 		</tr>
 	{/foreach}
 	{if $future_trips|count eq 0}
@@ -54,17 +54,15 @@
 			<th>City</th>
 			<th>Start Date</th>
 			<th>End Date</th>
-			<th>Private</th>
 		</tr>
 	</thead>
 	<tbody>
 	{foreach $past_trips as $trip}
-		<tr class="{cycle values='odd,even'}">
-			<td><a href="trip.php?trip_id={$trip->id}&amp;user={$profile->screen_name}">{$trip->display_name}</a></td>
-			<td>{$trip->primary_location}</td>
-			<td>{$trip->start_date|date_format}</td>
-			<td>{$trip->end_date|date_format}</td>
-			<td>{if $trip->is_private eq 'false'}No{else}Yes{/if}</td>
+		<tr class="{cycle values='odd,even'}{if $trip->is_private eq 'true'} private{/if}">
+			<td class="display-name"><a href="trip.php?trip_id={$trip->id}&amp;user={$profile->screen_name}">{$trip->display_name}</a></td>
+			<td class="primary-location">{$trip->primary_location}</td>
+			<td class="start-date">{$trip->start_date|date_format}</td>
+			<td class="end-date">{$trip->end_date|date_format}</td>
 		</tr>
 	{/foreach}
 	{if $past_trips|count eq 0}

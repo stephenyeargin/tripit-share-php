@@ -46,7 +46,7 @@
 	<hr />
 
 	<div id="footer" class="alpha grid_24 omega">
-		<p>Disclaimer: This product is not affiliated with TripIt&reg; and is provided without warranty.</p>
+		<p>Disclaimer: This site is not affiliated with TripIt&reg; and is provided without warranty.</p>
 	{block name=foot}{/block}
 	</div>
 

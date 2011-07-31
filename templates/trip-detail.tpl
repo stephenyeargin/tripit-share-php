@@ -120,8 +120,8 @@
 		<div class="traveler-photo"><img src="{$base_url}/assets/images/default-photo.jpg" alt="Profile Image" /></div>
 		{/if}
 		<div class="traveler-info">
-			<strong>Name:</strong> {$traveler_item->public_display_name}<br />
-			<strong>Screen Name:</strong> <a href="http://tripit.com/{$traveler_item->profile_url}">{$traveler_item->screen_name}</a><br />
+			<strong>{$traveler_item->public_display_name}</strong><br />
+			<strong>TripIt Profile:</strong> <a href="http://tripit.com/{$traveler_item->profile_url}">{$traveler_item->screen_name}</a><br />
 		</div>
 	</div>
 	<div class="clear">&nbsp;</div>
