@@ -77,7 +77,7 @@
 {$activity_item->display_name}
     Starts: {$activity_item->StartDateTime->time|date_format:'%l:%M %p'} {$activity_item->StartDateTime->date|date_format} 
     Ends: {$activity_item->end_time|date_format:'%l:%M %p'} 
-    Address: {$activity_item->Address->address}
+	Location: {$activity_item->location_name}{if isset($activity_item->Address->address)}, {$activity_item->Address->address}{/if}
 
 {/foreach}
 {/if}

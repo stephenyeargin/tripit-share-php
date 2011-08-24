@@ -99,7 +99,7 @@
 			<p>
 				<strong>Starts:</strong> {$activity_item->StartDateTime->time|date_format:'%l:%M %p'} {$activity_item->StartDateTime->date|date_format} <br />
 				<strong>Ends:</strong> {$activity_item->end_time|date_format:'%l:%M %p'} <br />
-				<strong>Address:</strong> {$activity_item->Address->address}
+				<strong>Location:</strong> {$activity_item->location_name}{if isset($activity_item->Address->address)}, {$activity_item->Address->address}{/if}
 			</p>
 		</div>
 	</div>
