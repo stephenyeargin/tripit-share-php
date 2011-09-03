@@ -31,27 +31,39 @@ class TripItShare extends Tripit {
 	/* Data Processing */
 	public function GetTravelers($object) {
 		
+		$traveler_list = array();
 		if (is_array($object->Trip->TripInvitees->Invitee)):
 			// Build an array of actual travelers
 			foreach ($object->Trip->TripInvitees->Invitee as $invited):
 				if ($invited->is_traveler == 'true'):
 					$traveler_list[] = $invited->{'@attributes'}->profile_ref;
 				endif;
+			endforeach;	
+			
+			foreach ($object->Profile as $profile):
+				if (in_array($profile->{'@attributes'}->ref, $traveler_list)):
+					$profiles[] = $profile;
+				endif;
 			endforeach;
-		else:
-			// Single traveler
-			$profile = array($object->Profile);
-			return $profile;
+
+			return($profiles);
+			
+		elseif (is_object($object->Trip->TripInvitees->Invitee)):
+				$traveler_list[] = $object->Trip->TripInvitees->Invitee->{'@attributes'}->profile_ref;
+				
+				if (is_array($object->Profile)):
+					foreach ($object->Profile as $profile):
+						if (in_array($profile->{'@attributes'}->ref, $traveler_list)):
+							$profiles[] = $profile;
+						endif;
+					endforeach;
+					return($profiles);
+				else:
+					return array($object->Profile);
+				endif;
 		endif;
 		
-		// Add only valid profiles to array
-		foreach ($object->Profile as $profile):
-			if (in_array($profile->{'@attributes'}->ref, $traveler_list)):
-				$profiles[] = $profile;
-			endif;
-		endforeach;
-		
-		return($profiles);
+		return false;
 		
 	}
 	
