@@ -47,6 +47,7 @@
 
 
 <h2>Past Trips</h2>
+<p><strong>Estimated Miles Traveled:</strong> {$miles_traveled|number_format} [<a href="javascript:void(0)" onclick="javascript:alert('Calculated between your home city and primary destination, multipled by two to get to/from distance.')">?</a>]</p>
 <table>
 	<thead>
 		<tr>
@@ -54,6 +55,9 @@
 			<th>City</th>
 			<th>Start Date</th>
 			<th>End Date</th>
+			{if $track_miles eq true}
+			<th>Distance (miles)</th>
+			{/if}
 		</tr>
 	</thead>
 	<tbody>
@@ -63,6 +67,9 @@
 			<td class="primary-location">{$trip->primary_location}</td>
 			<td class="start-date">{$trip->start_date|date_format}</td>
 			<td class="end-date">{$trip->end_date|date_format}</td>
+			{if $track_miles eq true}
+			<td>{$trip->distance_traveled|number_format}</td>
+			{/if}
 		</tr>
 	{/foreach}
 	{if $past_trips|count eq 0}

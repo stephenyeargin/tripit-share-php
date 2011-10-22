@@ -8,6 +8,7 @@ require 'class.error.php';
 require 'class.tripit.php';
 require 'class.smarty.php';
 require 'class.swift.php';
+require 'class.geocalculator.php';
 
 // Globals
 session_start();
@@ -35,8 +36,8 @@ if ($token):
 	$TripIt = new TripItShare( $token );
 	
 	// Profile
-	$profile = $TripIt->GetProfile();
-	$Smarty->assign('profile', $profile->Profile);
+	$Profile = $TripIt->GetProfile();
+	$Smarty->assign('profile', $Profile->Profile);
 	
 else:
 	// Don't process redirect if already on OAuth page
