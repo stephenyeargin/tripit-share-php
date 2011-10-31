@@ -30,7 +30,7 @@ if ($track_miles):
 	foreach ($past_trips->Trip as $key => $trip):
 		$lat1 = $trip->PrimaryLocationAddress->latitude;
 		$lon1 = $trip->PrimaryLocationAddress->longitude;
-		$distance = GeoCalculator::getGeoDistance($lat1, $lon1, $home_city_geo[0], $home_city_geo[1]);
+		$distance = GeoCalculator::getGeoDistance($lat1, $lon1, $home_city_geo[1], $home_city_geo[0]);
 		$past_trips->Trip[$key]->distance_traveled = $distance;
 		$total_distance += ($distance * 2);
 	endforeach;
